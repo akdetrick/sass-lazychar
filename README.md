@@ -14,5 +14,14 @@ sass-lazychar
 	content: entity("middot");
 	margin: auto 0.5em;
 }
+
+.breadcrumb:after {
+	content: entity("gt");
+	margin: auto 0.5em;
+
+	&:last-child {
+		display: none;
+	}
+}
 ```
 
