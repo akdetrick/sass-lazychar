@@ -1,7 +1,9 @@
 sass-lazychar
 =============
 
-### Use html entity names and emoji names in your Sass!
+### Use HTML entity and emoji names in your Sass!
+
+#### ⚠️ work in progress ⚠️
 
 ```scss
 .wat:before {
