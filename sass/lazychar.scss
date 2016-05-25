@@ -1,0 +1,47 @@
+@import "maps/entities";
+@import "maps/emoji";
+
+/// Returns result from a given key and map;
+/// throws an error if key doesn't exist
+/// @group utilities
+/// @access private
+///
+/// @param {string} $charName - html entity or emoji name
+/// @param {map} $charMap - sass map from which to get the codepoint value
+/// @returns {String} - character unicode value
+///
+@function _getChar( $charName, $charMap ) {
+	@if ( map-has-key($entity-map, $charName) ) {
+		@return '#{map-get($entity-map, $charName)}';
+	} @else {
+		@error "The `#{$charName}` entity is either invalid, or not currently supported by sass-lazychar";
+	}
+}
+
+/// Returns a unicode string for a given HTML entity name.
+/// @group functions
+/// @access public
+///
+/// @param {string} $charName - html entity name
+/// @returns {String} - entity unicode value
+///
+/// @example scss - Use in `content` properties
+/// `content: entity(middot);`
+///
+@function entity( $charName ) {
+	@return _getChar( $charName, $MAP_ENTITIES );
+}
+
+/// Returns a unicode string for a given standard emoji name.
+/// @group functions
+/// @access public
+///
+/// @param {string} $charName - emoji name
+/// @returns {String} - emoji unicode value
+///
+/// @example scss - Use in `content` properties
+/// `content: emoji(middot);`
+///
+@function emoji( $charName ) {
+	@return _getChar( $charName, $MAP_EMOJI );
+}
