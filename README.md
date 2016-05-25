@@ -10,7 +10,7 @@ sass-lazychar
 	content: emoji("LOVE HOTEL");
 }
 
-.text--middotLeft {
+.text--middotLeft:before {
 	content: entity("middot");
 	margin: auto 0.5em;
 }
